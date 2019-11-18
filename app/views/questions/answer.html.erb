@@ -1,0 +1,28 @@
+<h1>Stupid Coach</h1>
+
+<div id="you">
+  <p>
+    <%= params[:question] %>
+  </p>
+  <p>
+    <%= "- You" %>
+  </p>
+</div>
+
+<div id="coach">
+  <p>
+    <%  if params[:question] == "I am going to work" %>
+      <%= @answer = "Great!" %>
+    <%  elsif params[:question].match(/.+\?/)  %>
+      <%= @answer = "Silly question, get dressed and go to work!" %>
+    <%  else %>
+      <%= @answer = "I don't care, get dressed and go to work!" %>
+    <% end %>
+  </p>
+  <p>
+    <%= "- Your Coach" %>
+  </p>
+</div>
+
+<%= link_to "Ask another question", ask_path %>
+
